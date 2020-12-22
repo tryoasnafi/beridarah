@@ -8,14 +8,15 @@ if (!isset($_SESSION['user'])) {
 include_once('../../config/database.php');
 
 if (isset($_POST['add_donor'])) {
-    $name = $_POST['name'];
+    $id_user = $_SESSION['user']->id_user;
+    $name = $_POST['fullname'];
     $gender = $_POST['gender'];
     $birthday = $_POST['birthday'];
     $domicile_city = $_POST['domicile_city'];
     $phone = $_POST['phone'];
     $blood_group = $_POST['blood_group'];
 
-    $sql = "INSERT INTO donor (name, gender, birthday, domicile_city, phone, blood_group) VALUES ('$name', '$gender', '$birthday', '$domicile_city', '$phone', '$blood_group')";
+    $sql = "INSERT INTO donor (id_user, name, gender, birthday, domicile_city, phone, blood_group) VALUES ('$id_user', '$name', '$gender', '$birthday', '$domicile_city', '$phone', '$blood_group')";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>

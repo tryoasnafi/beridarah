@@ -10,7 +10,7 @@ include_once('../../config/database.php');
 
 if (isset($_POST['edit_donor'])) {
     $id = $_POST['id'];
-    $name = $_POST['name'];
+    $name = $_POST['fullname'];
     $gender = $_POST['gender'];
     $birthday = $_POST['birthday'];
     $domicile_city = $_POST['domicile_city'];
@@ -27,7 +27,7 @@ if (isset($_POST['edit_donor'])) {
                 blood_group = '$blood_group', 
                 is_active  = '$is_active',
                 updated_date = CURRENT_TIMESTAMP
-            WHERE id = '$id'";
+            WHERE id_donor = '$id'";
 
     if ($conn->query($update) === TRUE) {
         echo "<script>

@@ -10,7 +10,7 @@ include_once('../../config/database.php');
 
 $id = $_GET['id'];
 
-$delete = "DELETE FROM donor WHERE id='$id'";
+$delete = "DELETE FROM donor WHERE id_donor='$id'";
 
 if ($conn->query($delete) === TRUE) {
     echo "<script>
@@ -18,5 +18,5 @@ if ($conn->query($delete) === TRUE) {
     window.location.href='index.php';
     </script>";
 } else {
-    echo "Error : " . $update . "<br>" . $conn->connect_error;
+    echo "Error : " . $delete . "<br>" . $conn->connect_error;
 }
